@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Sederhana</h1>
+        <form method="POST" action="/calculate">
+            <input type="number" name="a" placeholder="Angka pertama" required>
+            <input type="number" name="b" placeholder="Angka kedua" required>
+            <select name="operation" required>
+                <option value="add">Tambah</option>
+                <option value="subtract">Kurang</option>
+                <option value="multiply">Kali</option>
+                <option value="divide">Bagi</option>
+            </select>
+            <button type="submit">Hitung</button>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            Hasil: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
